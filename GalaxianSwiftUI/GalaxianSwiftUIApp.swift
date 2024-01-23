@@ -11,7 +11,7 @@ import SwiftUI
 struct GalaxianSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            GameView()
         }
     }
 }
