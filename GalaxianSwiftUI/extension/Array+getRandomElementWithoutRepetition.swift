@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+extension Array {
+    func getRamdomElementWihoutRepetition() -> Element? {
+        var shuffledItem = self.shuffled()
+        return shuffledItem.popLast()
+    }
+}
