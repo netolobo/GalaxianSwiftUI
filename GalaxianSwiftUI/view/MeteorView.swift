@@ -7,17 +7,17 @@
 
 import SwiftUI
 
-struct EnemyView: View {
-    let enemy: Enemy
+struct MeteorView: View {
+    let enemy: Meteor
     
     var body: some View {
         Image(enemy.imageName)
             .resizable()
-            .frame(width: enemy.size, height: enemy.size)
+            .frame(width: enemy.size.width, height: enemy.size.height)
             .position(enemy.position)
     }
 }
 
 #Preview {
-    EnemyView(enemy: Enemy.example)
+    MeteorView(enemy: Meteor.example)
 }

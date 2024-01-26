@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum EnemyHorizontalMovement {
+enum MeteorHorizontalMovement {
     case left
     case right
 }

@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		5A0410442B5F097000F8C330 /* BulletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0410432B5F097000F8C330 /* BulletView.swift */; };
-		5A0410462B5F5DA400F8C330 /* EnemyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0410452B5F5DA400F8C330 /* EnemyView.swift */; };
-		5A0410482B5F5DBD00F8C330 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0410472B5F5DBD00F8C330 /* Enemy.swift */; };
-		5A0410672B601F9500F8C330 /* EnemyHorizontalMovement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0410662B601F9500F8C330 /* EnemyHorizontalMovement.swift */; };
+		5A0410462B5F5DA400F8C330 /* MeteorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0410452B5F5DA400F8C330 /* MeteorView.swift */; };
+		5A0410482B5F5DBD00F8C330 /* Meteor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0410472B5F5DBD00F8C330 /* Meteor.swift */; };
+		5A0410672B601F9500F8C330 /* MeteorHorizontalMovement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0410662B601F9500F8C330 /* MeteorHorizontalMovement.swift */; };
 		5A04106A2B60288100F8C330 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0410692B60288100F8C330 /* GameViewModel.swift */; };
 		5A131B7F2B62D07B00BD530D /* ShipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A131B7E2B62D07B00BD530D /* ShipView.swift */; };
 		5A131B812B62E62200BD530D /* PauseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A131B802B62E62200BD530D /* PauseView.swift */; };
@@ -30,9 +30,9 @@
 
 /* Begin PBXFileReference section */
 		5A0410432B5F097000F8C330 /* BulletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletView.swift; sourceTree = "<group>"; };
-		5A0410452B5F5DA400F8C330 /* EnemyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyView.swift; sourceTree = "<group>"; };
-		5A0410472B5F5DBD00F8C330 /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
-		5A0410662B601F9500F8C330 /* EnemyHorizontalMovement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyHorizontalMovement.swift; sourceTree = "<group>"; };
+		5A0410452B5F5DA400F8C330 /* MeteorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteorView.swift; sourceTree = "<group>"; };
+		5A0410472B5F5DBD00F8C330 /* Meteor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meteor.swift; sourceTree = "<group>"; };
+		5A0410662B601F9500F8C330 /* MeteorHorizontalMovement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteorHorizontalMovement.swift; sourceTree = "<group>"; };
 		5A0410692B60288100F8C330 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		5A131B7E2B62D07B00BD530D /* ShipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipView.swift; sourceTree = "<group>"; };
 		5A131B802B62E62200BD530D /* PauseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseView.swift; sourceTree = "<group>"; };
@@ -65,8 +65,8 @@
 		5A0410652B601F7100F8C330 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				5A0410472B5F5DBD00F8C330 /* Enemy.swift */,
-				5A0410662B601F9500F8C330 /* EnemyHorizontalMovement.swift */,
+				5A0410472B5F5DBD00F8C330 /* Meteor.swift */,
+				5A0410662B601F9500F8C330 /* MeteorHorizontalMovement.swift */,
 				5A131B822B634FAD00BD530D /* GameState.swift */,
 				5A137BB42B646183006605F4 /* Ship.swift */,
 			);
@@ -86,7 +86,7 @@
 			children = (
 				5A2A9CE82B5C3AFD0067DC6A /* GameView.swift */,
 				5A0410432B5F097000F8C330 /* BulletView.swift */,
-				5A0410452B5F5DA400F8C330 /* EnemyView.swift */,
+				5A0410452B5F5DA400F8C330 /* MeteorView.swift */,
 				5A2A9CF62B5C765F0067DC6A /* TestView.swift */,
 				5A2A9CF42B5C3F7B0067DC6A /* JoystickView.swift */,
 				5A131B7E2B62D07B00BD530D /* ShipView.swift */,
@@ -220,17 +220,17 @@
 				5A131B832B634FAD00BD530D /* GameState.swift in Sources */,
 				5A04106A2B60288100F8C330 /* GameViewModel.swift in Sources */,
 				5A2A9CE92B5C3AFD0067DC6A /* GameView.swift in Sources */,
-				5A0410672B601F9500F8C330 /* EnemyHorizontalMovement.swift in Sources */,
+				5A0410672B601F9500F8C330 /* MeteorHorizontalMovement.swift in Sources */,
 				5A2A9CF72B5C765F0067DC6A /* TestView.swift in Sources */,
 				5A2A9CE72B5C3AFD0067DC6A /* GalaxianSwiftUIApp.swift in Sources */,
 				5A0410442B5F097000F8C330 /* BulletView.swift in Sources */,
 				5A137BAF2B640285006605F4 /* InitialView.swift in Sources */,
-				5A0410482B5F5DBD00F8C330 /* Enemy.swift in Sources */,
+				5A0410482B5F5DBD00F8C330 /* Meteor.swift in Sources */,
 				5A131B812B62E62200BD530D /* PauseView.swift in Sources */,
 				5A137BAD2B63FC0A006605F4 /* GameOverView.swift in Sources */,
 				5A137BB52B646183006605F4 /* Ship.swift in Sources */,
 				5A2A9CF52B5C3F7B0067DC6A /* JoystickView.swift in Sources */,
-				5A0410462B5F5DA400F8C330 /* EnemyView.swift in Sources */,
+				5A0410462B5F5DA400F8C330 /* MeteorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

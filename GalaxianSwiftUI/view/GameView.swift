@@ -22,8 +22,8 @@ struct GameView: View {
                         .fontDesign(.rounded)
                         .foregroundStyle(.white)
                     
-                    ForEach(viewModel.backEnemies) { enemy in
-                        EnemyView(enemy: enemy)
+                    ForEach(viewModel.backMeteors) { enemy in
+                        MeteorView(enemy: enemy)
                     }
                 }
 
