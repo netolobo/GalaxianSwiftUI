@@ -11,8 +11,8 @@ import SwiftUI
 @Observable
 class GameViewModel {
     var score = 0
-    var shipPosition = CGPoint(x: 200, y: 500)
-    var enemiesMovementDirection = EnemiesMovement.right
+    var ship = Ship()
+    var enemiesMovementDirection = EnemyHorizontalMovement.right
     var backEnemies = Enemy.backEnemies
     var randomEnemy = Enemy.backEnemies[0]
     var geo: GeometryProxy?
@@ -23,16 +23,15 @@ class GameViewModel {
         }
     }
     
-    func isCollision(index: Int) -> Bool {
+    private func isCollision(index: Int) -> Bool {
         let ramdomEnemy = CGRect(origin: backEnemies[index].position, size: CGSize(width: 50, height: 50))
-        let ship = CGRect(origin: shipPosition, size: CGSize(width: 50, height: 50))
-  
+        let ship = CGRect(origin: ship.position, size: ship.size)
         return ramdomEnemy.intersects(ship)
     }
     
     func resetGame() {
         setShipInitialPosition()
-        enemiesMovementDirection = EnemiesMovement.right
+        enemiesMovementDirection = EnemyHorizontalMovement.right
         backEnemies = Enemy.backEnemies
         randomEnemy = Enemy.backEnemies.first!
         score = 0
@@ -107,7 +106,7 @@ class GameViewModel {
     
     private func setShipInitialPosition() {
         guard let geo = self.geo else { return }
-        shipPosition = CGPoint(x: geo.size.width / 2, y: geo.size.height - 40)
+        ship.position = CGPoint(x: geo.size.width / 2, y: geo.size.height - 40)
     }
     
 }

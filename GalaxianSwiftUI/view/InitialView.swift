@@ -26,7 +26,6 @@ struct InitialView: View {
                         .position(x: geo.size.width / 2, y: animateGameTitle ? geo.size.height / 2 : -10 )
                 
                 Text("Hold the space ship to play")
-                    .frame(height: 50)
                     .foregroundStyle(.white)
                     .font(.headline)
                     .fontWeight(.bold)

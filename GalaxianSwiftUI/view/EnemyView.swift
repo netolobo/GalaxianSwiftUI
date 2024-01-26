@@ -11,8 +11,8 @@ struct EnemyView: View {
     let enemy: Enemy
     
     var body: some View {
-        RoundedRectangle(cornerRadius: 5)
-            .fill(enemy.color)
+        Image(enemy.imageName)
+            .resizable()
             .frame(width: enemy.size, height: enemy.size)
             .position(enemy.position)
     }

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct Enemy : Identifiable {
     let id = UUID()
-    var color: Color
+    var imageName: String
     let velocity: Double
     let size: Double = 25.0
     var position : CGPoint
@@ -18,24 +18,24 @@ struct Enemy : Identifiable {
 
 
 extension Enemy {
-    static let example = Enemy(color: .red, velocity: 0.5, position: CGPoint(x: 0, y: 0))
+    static let example = Enemy(imageName: "meteor", velocity: 0.5, position: CGPoint(x: 0, y: 0))
                                
-    static let backEnemies = [Enemy(color: .red, velocity: 0.5, position: CGPoint(x: 20, y: 100)),
-                              Enemy(color: .red, velocity: 0.5, position: CGPoint(x: 60, y: 100)),
-                              Enemy(color: .red, velocity: 0.5, position: CGPoint(x: 100, y: 100)),
-                              Enemy(color: .red, velocity: 0.5, position: CGPoint(x: 140, y: 100)),
-                              Enemy(color: .red, velocity: 0.5, position: CGPoint(x: 180, y: 100)),
-                              Enemy(color: .red, velocity: 0.5, position: CGPoint(x: 220, y: 100)),
-                              Enemy(color: .red, velocity: 0.5, position: CGPoint(x: 260, y: 100)),
-                              Enemy(color: .red, velocity: 0.5, position: CGPoint(x: 300, y: 100))]
+    static let backEnemies = [Enemy(imageName: "meteor", velocity: 0.5, position: CGPoint(x: 20, y: 100)),
+                              Enemy(imageName: "meteor", velocity: 0.5, position: CGPoint(x: 60, y: 100)),
+                              Enemy(imageName: "meteor", velocity: 0.5, position: CGPoint(x: 100, y: 100)),
+                              Enemy(imageName: "meteor", velocity: 0.5, position: CGPoint(x: 140, y: 100)),
+                              Enemy(imageName: "meteor", velocity: 0.5, position: CGPoint(x: 180, y: 100)),
+                              Enemy(imageName: "meteor", velocity: 0.5, position: CGPoint(x: 220, y: 100)),
+                              Enemy(imageName: "meteor", velocity: 0.5, position: CGPoint(x: 260, y: 100)),
+                              Enemy(imageName: "meteor", velocity: 0.5, position: CGPoint(x: 300, y: 100))]
     
-    static let middleEnemies = [Enemy(color: .orange, velocity: 0.3, position: CGPoint(x: 0, y: 0)),
-                                Enemy(color: .orange, velocity: 0.3, position: CGPoint(x: 0, y: 0)),
-                                Enemy(color: .orange, velocity: 0.3, position: CGPoint(x: 0, y: 0)),
-                                Enemy(color: .orange, velocity: 0.3, position: CGPoint(x: 0, y: 0))]
+    static let middleEnemies = [Enemy(imageName: "meteor", velocity: 0.3, position: CGPoint(x: 0, y: 0)),
+                                Enemy(imageName: "meteor", velocity: 0.3, position: CGPoint(x: 0, y: 0)),
+                                Enemy(imageName: "meteor", velocity: 0.3, position: CGPoint(x: 0, y: 0)),
+                                Enemy(imageName: "meteor", velocity: 0.3, position: CGPoint(x: 0, y: 0))]
     
-    static let frontEnemies = [Enemy(color: .yellow, velocity: 0.1, position: CGPoint(x: 0, y: 0)),
-                               Enemy(color: .yellow, velocity: 0.1, position: CGPoint(x: 0, y: 0))]
+    static let frontEnemies = [Enemy(imageName: "meteor", velocity: 0.1, position: CGPoint(x: 0, y: 0)),
+                               Enemy(imageName: "meteor", velocity: 0.1, position: CGPoint(x: 0, y: 0))]
     
     static let all = [backEnemies, middleEnemies, frontEnemies]
 }
