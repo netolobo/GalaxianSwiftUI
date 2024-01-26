@@ -12,13 +12,16 @@ import SwiftUI
 class GameViewModel {
     var score = 0
     var shipPosition = CGPoint(x: 200, y: 500)
-//    var enemiesPositionX = 120.0
     var enemiesMovementDirection = EnemiesMovement.right
     var backEnemies = Enemy.backEnemies
     var randomEnemy = Enemy.backEnemies[0]
-    var gameOver = false
     var geo: GeometryProxy?
-    
+    var showGameOverDialg = false
+    var gameState = GameState.initial {
+        didSet {
+            showGameOverDialg = gameState == .over
+        }
+    }
     
     func isCollision(index: Int) -> Bool {
         let ramdomEnemy = CGRect(origin: backEnemies[index].position, size: CGSize(width: 50, height: 50))
@@ -27,33 +30,20 @@ class GameViewModel {
         return ramdomEnemy.intersects(ship)
     }
     
-    func ramdomAnimation(duration: TimeInterval) -> Animation {
-        let animations = [
-            Animation.easeInOut(duration: duration),
-            Animation.easeIn(duration: duration),
-            Animation.easeOut(duration: duration),
-            Animation.linear(duration: duration),
-            Animation.bouncy(duration: duration),
-            Animation.spring(duration: duration)
-        ]
-        return animations.randomElement()!
-    }
-    
-    func resetGame(geo: GeometryProxy) {
+    func resetGame() {
         setShipInitialPosition()
-//        enemiesPositionX = 120.0
         enemiesMovementDirection = EnemiesMovement.right
         backEnemies = Enemy.backEnemies
         randomEnemy = Enemy.backEnemies.first!
         score = 0
+        gameState = .initial
     }
     
     private func enemiesLeftRighMovement() {
         guard let geo = self.geo else { return }
         
         Timer.scheduledTimer(withTimeInterval: 0.02, repeats: true) { _ in
-            
-            if !self.gameOver {
+            if self.gameState == .playing {
                 if self.enemiesMovementDirection == .right {
                     for i in 0..<self.backEnemies.count {
                         self.backEnemies[i].position.x += 1
@@ -79,15 +69,17 @@ class GameViewModel {
         guard let geo = self.geo else { return }
         
         Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true) { _ in
-            if !self.gameOver {
+              if self.gameState == .playing {
                 if let index = self.backEnemies.firstIndex(where: { $0.id == self.randomEnemy.id }) {
                     if self.backEnemies[index].position.y < geo.size.height {
                         self.backEnemies[index].position.y += 1
                         if self.isCollision(index: index) {
-                            self.gameOver = true
+                            self.gameState = .over
                         }
                     } else {
-                        self.score += 1
+                        withAnimation(.bouncy) {
+                            self.score += 1
+                        }
                         self.backEnemies[index].position.y = 0 //reset enemy position
                         
                         withAnimation(.bouncy(duration: 1.3)) {

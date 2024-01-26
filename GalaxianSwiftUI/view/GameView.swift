@@ -14,31 +14,35 @@ struct GameView: View {
         GeometryReader() { geo in
             ZStack {
                 
-                Text("Score \(viewModel.score)")
-                    .position(x: geo.size.width / 2, y: 10)
-                    .font(.title2)
-                    .fontWeight(.heavy)
-                    .fontDesign(.rounded)
-                    .foregroundStyle(.white)
-                
-                ForEach(viewModel.backEnemies) { enemy in
-                    EnemyView(enemy: enemy)
+                if viewModel.gameState != .initial {
+                    Text("Score \(viewModel.score)")
+                        .position(x: geo.size.width / 2, y: 10)
+                        .font(.title2)
+                        .fontWeight(.heavy)
+                        .fontDesign(.rounded)
+                        .foregroundStyle(.white)
+                    
+                    ForEach(viewModel.backEnemies) { enemy in
+                        EnemyView(enemy: enemy)
+                    }
                 }
-                
-//                BulletView(shipPositionX: $viewModel.shipPosition.x)
 
-                ShipView(shipPosition: $viewModel.shipPosition, geo: geo)
+                ShipView(viewModel: $viewModel)
+                
+                switch viewModel.gameState {
+                case .initial:
+                    InitialView()
+                case .paused:
+                    PauseView()
+                case .over:
+                    GameOverView(viewModel: $viewModel)
+                case .playing:
+                    EmptyView()
+                }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(.black)
+            .background(SpaceView(gameState: $viewModel.gameState))
             .onAppear { viewModel.setupGame(geo: geo) }
-            .alert("Game Over", isPresented: $viewModel.gameOver) {
-                Button {
-                    viewModel.resetGame(geo: geo)
-                } label: {
-                    Text("Play again!")
-                }
-            }
         }
     }
 }
