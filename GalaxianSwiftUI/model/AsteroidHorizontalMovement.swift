@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum MeteorHorizontalMovement {
+enum AsteroidHorizontalMovement {
     case left
     case right
 }

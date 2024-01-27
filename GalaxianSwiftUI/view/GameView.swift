@@ -22,10 +22,11 @@ struct GameView: View {
                         .fontDesign(.rounded)
                         .foregroundStyle(.white)
                     
-                    ForEach(viewModel.backMeteors) { enemy in
-                        MeteorView(enemy: enemy)
+                    ForEach(viewModel.backAsteroids) { enemy in
+                        AsteroidView(asteroid: enemy)
                     }
                 }
+                
 
                 ShipView(viewModel: $viewModel)
                 

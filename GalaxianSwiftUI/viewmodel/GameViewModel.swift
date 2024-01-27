@@ -12,24 +12,24 @@ import SwiftUI
 class GameViewModel {
     var score = 0
     var ship = Ship()
-    var meteorMovementDirection = MeteorHorizontalMovement.right
-    var backMeteors = Meteor.back
-    var randomMeteor = Meteor.back[0]
+    var asteroidMovementDirection = AsteroidHorizontalMovement.right
+    var backAsteroids = Asteroid.back
+    var randomAsteroid = Asteroid.back[0]
     var geo: GeometryProxy?
     var gameState = GameState.initial
 
     
-    private func isCollision(index: Int) -> Bool {
-        let ramdomMeteor = CGRect(origin: backMeteors[index].position, size: backMeteors[index].size)
+    private func isCollision(asteroid: Asteroid) -> Bool {
+        let ramdomAsteroid = CGRect(origin: asteroid.position, size: asteroid.size)
         let ship = CGRect(origin: ship.position, size: ship.size)
-        return ramdomMeteor.intersects(ship)
+        return ramdomAsteroid.intersects(ship)
     }
     
     func resetGame() {
         setShipInitialPosition()
-        meteorMovementDirection = MeteorHorizontalMovement.right
-        backMeteors = Meteor.back
-        randomMeteor = Meteor.back.first!
+        asteroidMovementDirection = AsteroidHorizontalMovement.right
+        backAsteroids = Asteroid.back
+        randomAsteroid = Asteroid.back.first!
         score = 0
         gameState = .initial
     }
@@ -39,22 +39,22 @@ class GameViewModel {
         
         Timer.scheduledTimer(withTimeInterval: 0.02, repeats: true) { _ in
             if self.gameState == .playing {
-                if self.meteorMovementDirection == .right {
-                    for i in 0..<self.backMeteors.count {
-                        self.backMeteors[i].position.x += 1
+                if self.asteroidMovementDirection == .right {
+                    for i in 0..<self.backAsteroids.count {
+                        self.backAsteroids[i].position.x += 1
                     }
                 } else {
-                    for i in 0..<self.backMeteors.count {
-                        self.backMeteors[i].position.x -= 1
+                    for i in 0..<self.backAsteroids.count {
+                        self.backAsteroids[i].position.x -= 1
                     }
                 }
                 
-                if self.backMeteors[7].position.x >= geo.size.width - 12.5 {
-                    self.meteorMovementDirection = .left
+                if self.backAsteroids[7].position.x >= geo.size.width - 12.5 {
+                    self.asteroidMovementDirection = .left
                 }
                 
-                if self.backMeteors[0].position.x <= 12.5 {
-                    self.meteorMovementDirection = .right
+                if self.backAsteroids[0].position.x <= 12.5 {
+                    self.asteroidMovementDirection = .right
                 }
             }
         }
@@ -65,23 +65,23 @@ class GameViewModel {
         
         Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true) { _ in
               if self.gameState == .playing {
-                if let index = self.backMeteors.firstIndex(where: { $0.id == self.randomMeteor.id }) {
-                    if self.backMeteors[index].position.y < geo.size.height {
-                        self.backMeteors[index].position.y += 1
-                        if self.isCollision(index: index) {
+                if let index = self.backAsteroids.firstIndex(where: { $0.id == self.randomAsteroid.id }) {
+                    if self.backAsteroids[index].position.y < geo.size.height {
+                        self.backAsteroids[index].position.y += 1
+                        if self.isCollision(asteroid: self.backAsteroids[index]) {
                             self.gameState = .over
                         }
                     } else {
                         withAnimation(.bouncy) {
                             self.score += 1
                         }
-                        self.backMeteors[index].position.y = 0 //reset enemy position
+                        self.backAsteroids[index].position.y = 0 //reset enemy position
                         
                         withAnimation(.bouncy(duration: 1.3)) {
-                            self.backMeteors[index].position.y = self.randomMeteor.position.y
+                            self.backAsteroids[index].position.y = self.randomAsteroid.position.y
                         }
                         
-                        self.randomMeteor = self.backMeteors.randomElement()! //update the random enemy
+                        self.randomAsteroid = self.backAsteroids.randomElement()! //update the random enemy
                     }
                 }
             }
@@ -95,7 +95,7 @@ class GameViewModel {
     
     func setupGame(geo: GeometryProxy) {
         self.geo = geo
-        randomMeteor = backMeteors.randomElement()!
+        randomAsteroid = backAsteroids.randomElement()!
         setShipInitialPosition()
         meteorsMovement()
     }
