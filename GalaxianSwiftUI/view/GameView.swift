@@ -25,8 +25,16 @@ struct GameView: View {
                     ForEach(viewModel.backAsteroids) { enemy in
                         AsteroidView(asteroid: enemy)
                     }
+                    
+                    ForEach(viewModel.middleAsteroids) { enemy in
+                        AsteroidView(asteroid: enemy)
+                    }
+                    
+                    ForEach(viewModel.frontAsteroids) { enemy in
+                        AsteroidView(asteroid: enemy)
+                    }
+                    
                 }
-                
 
                 ShipView(viewModel: $viewModel)
                 

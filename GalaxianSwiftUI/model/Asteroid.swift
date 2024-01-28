@@ -16,25 +16,17 @@ struct Asteroid : Identifiable {
     var position : CGPoint
 }
 
-
 extension Asteroid {
-    static let example = Asteroid(imageName: "meteor", velocity: 0.5, position: CGPoint(x: 0, y: 0))
+    
+    
+    static let example = Asteroid(imageName: Const.asteroidImageName, velocity: 0.5, position: CGPoint(x: 500, y: 500))
                                
-    static let back = [Asteroid(imageName: "meteor", velocity: 0.5, position: CGPoint(x: 20, y: 100)),
-                              Asteroid(imageName: "meteor", velocity: 0.5, position: CGPoint(x: 60, y: 100)),
-                              Asteroid(imageName: "meteor", velocity: 0.5, position: CGPoint(x: 100, y: 100)),
-                              Asteroid(imageName: "meteor", velocity: 0.5, position: CGPoint(x: 140, y: 100)),
-                              Asteroid(imageName: "meteor", velocity: 0.5, position: CGPoint(x: 180, y: 100)),
-                              Asteroid(imageName: "meteor", velocity: 0.5, position: CGPoint(x: 220, y: 100)),
-                              Asteroid(imageName: "meteor", velocity: 0.5, position: CGPoint(x: 260, y: 100)),
-                              Asteroid(imageName: "meteor", velocity: 0.5, position: CGPoint(x: 300, y: 100))]
+
+    static var back = AsteroidsGenerator.generate(quantity: 12, horizontalPadding: 30, initialXPosition: 20, positionY: Const.backAsteroidsPositionY, velocity: Const.backAsteroidsVelocity)
     
-    static let middle = [Asteroid(imageName: "meteor", velocity: 0.3, position: CGPoint(x: 0, y: 0)),
-                                Asteroid(imageName: "meteor", velocity: 0.3, position: CGPoint(x: 0, y: 0)),
-                                Asteroid(imageName: "meteor", velocity: 0.3, position: CGPoint(x: 0, y: 0)),
-                                Asteroid(imageName: "meteor", velocity: 0.3, position: CGPoint(x: 0, y: 0))]
     
-    static let front = [Asteroid(imageName: "meteor", velocity: 0.1, position: CGPoint(x: 0, y: 0)),
-                               Asteroid(imageName: "meteor", velocity: 0.1, position: CGPoint(x: 0, y: 0))]
+    static let middle = AsteroidsGenerator.generate(quantity: 8, horizontalPadding: 30, initialXPosition: 80, positionY: Const.middleAsteroidsPositionY, velocity: Const.middleAsteroidsVelocity)
+    
+    static let front = AsteroidsGenerator.generate(quantity: 4, horizontalPadding: 30, initialXPosition: 140, positionY: Const.frontAsteroidsPositionY, velocity: Const.frontAsteroidsVelocity)
     
 }
