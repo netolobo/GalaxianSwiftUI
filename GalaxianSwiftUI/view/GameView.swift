@@ -9,6 +9,7 @@ import SwiftUI
 
 struct GameView: View {
     @State private var viewModel = GameViewModel()
+    
     var body: some View {
         GeometryReader() { geo in
             ZStack {
@@ -31,18 +32,17 @@ struct GameView: View {
                     ForEach(viewModel.backAsteroids) { enemy in
                         AsteroidView(asteroid: enemy)
                     }
-                    
                 }
 
                 ShipView(viewModel: $viewModel)
                 
                 switch viewModel.gameState {
                 case .initial:
-                    InitialView()
+                    GameInitialView()
                 case .paused:
-                    PauseView()
+                    GamePausedView()
                 case .over:
-                    OverView(viewModel: $viewModel)
+                    GameOverView(viewModel: $viewModel)
                 case .playing:
                     EmptyView()
                 }

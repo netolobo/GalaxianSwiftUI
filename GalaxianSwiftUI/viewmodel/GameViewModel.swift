@@ -77,10 +77,9 @@ class GameViewModel {
                     if self.backAsteroids[index].position.y < geo.size.height {
                         self.backAsteroids[index].position.y += 1
                         if self.isCollision(asteroid: self.backAsteroids[index]) {
-                            withAnimation(.bouncy) {
+                            withAnimation {
                                 self.gameState = .over
                             }
-                            
                         }
                     } else {
                         withAnimation(.bouncy) {

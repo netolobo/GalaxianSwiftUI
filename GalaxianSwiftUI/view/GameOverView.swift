@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct OverView: View {
+struct GameOverView: View {
     @State private var animateGameName = false
     @Binding var viewModel: GameViewModel
     
@@ -38,7 +38,6 @@ struct OverView: View {
                         .scaleEffect(animateGameName ? 1 : 0.5)
                         .opacity(animateGameName ? 1 : 0.5)
                 }
-    
         }
         .onAppear {
             withAnimation(.easeIn(duration: 0.3)) {
@@ -49,5 +48,5 @@ struct OverView: View {
 }
 
 #Preview {
-    OverView(viewModel: .constant(GameViewModel()))
+    GameOverView(viewModel: .constant(GameViewModel()))
 }

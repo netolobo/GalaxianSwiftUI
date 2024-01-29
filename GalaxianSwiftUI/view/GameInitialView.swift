@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct InitialView: View {
+struct GameInitialView: View {
     @State private var animateInitialMessage = false
     @State private var animateGameTitle = false
     
@@ -45,5 +45,5 @@ struct InitialView: View {
 }
 
 #Preview {
-    InitialView()
+    GameInitialView()
 }

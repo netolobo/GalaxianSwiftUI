@@ -20,7 +20,7 @@ extension Asteroid {
     static let example = Asteroid(
         imageName: Const.asteroidImageName,
         velocity: Const.asteroidVelocity,
-        position: CGPoint(x: 500, y: 500)
+        position: CGPoint(x: 200, y: 200)
     )
     
     static var asteroids = AsteroidsGenerator.generate(

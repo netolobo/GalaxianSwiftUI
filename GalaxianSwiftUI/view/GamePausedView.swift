@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PauseView: View {
+struct GamePausedView: View {
     @State private var animatePauseMessage = false
     @State private var animateGameName = false
     
@@ -24,7 +24,6 @@ struct PauseView: View {
                 .shadow(color: .purple, radius: 1)
                 .scaleEffect(animateGameName ? 1 : 0.5)
                 .opacity(animateGameName ? 1 : 0.5)
-            
             
             Text(Const.gamePausedMessage)
                 .foregroundStyle(.white)
@@ -44,5 +43,5 @@ struct PauseView: View {
 }
 
 #Preview {
-    PauseView()
+    GamePausedView()
 }

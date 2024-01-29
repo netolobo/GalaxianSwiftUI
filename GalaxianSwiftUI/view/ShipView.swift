@@ -14,7 +14,7 @@ struct ShipView: View {
         
         Image(viewModel.ship.imageName)
             .resizable()
-            .frame(width: 50, height: 50)
+            .frame(width: viewModel.ship.size.width, height: viewModel.ship.size.height)
             .position(viewModel.ship.position)
             .gesture(
                 DragGesture()
