@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SpaceView: View {
     @State private var offsetY: CGFloat = 0.0
-    let backgroundImage = Image("space")
+    let backgroundImage = Image(Const.spaceImageName)
     @Binding var gameState : GameState
     
     var body: some View {

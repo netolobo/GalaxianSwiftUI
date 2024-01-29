@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct GameOverView: View {
+struct OverView: View {
     @State private var animateGameName = false
     @Binding var viewModel: GameViewModel
     
     var body: some View {
         VStack(spacing: 40) {
             
-            Text("GAME OVER")
+            Text(Const.gameOverMessage)
                 .font(.largeTitle)
                 .fontWeight(.heavy)
                 .fontDesign(.serif)
@@ -28,7 +28,7 @@ struct GameOverView: View {
                 Button {
                     viewModel.resetGame()
                 } label: {
-                    Text("Play again!")
+                    Text(Const.playAgainLabel)
                         .padding()
                         .background(Gradient(colors: [.gray, .brown, .red]))
                         .foregroundStyle(.white)
@@ -49,5 +49,5 @@ struct GameOverView: View {
 }
 
 #Preview {
-    GameOverView(viewModel: .constant(GameViewModel()))
+    OverView(viewModel: .constant(GameViewModel()))
 }

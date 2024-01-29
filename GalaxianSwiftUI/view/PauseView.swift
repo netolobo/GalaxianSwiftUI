@@ -14,7 +14,7 @@ struct PauseView: View {
     var body: some View {
         VStack(spacing: 40) {
             
-            Text("ASTEROIDS RAIN")
+            Text(Const.gameTitle)
                 .font(.largeTitle)
                 .fontWeight(.heavy)
                 .fontDesign(.serif)
@@ -26,7 +26,7 @@ struct PauseView: View {
                 .opacity(animateGameName ? 1 : 0.5)
             
             
-            Text("Game paused, hold the space ship to resume")
+            Text(Const.gamePausedMessage)
                 .foregroundStyle(.white)
                 .font(.headline)
                 .fontWeight(.bold)

@@ -14,7 +14,7 @@ struct InitialView: View {
     var body: some View {
         GeometryReader { geo in
             ZStack {
-                    Text("ASTEROIDS RAIN")
+                Text(Const.gameTitle)
                     .frame(height: 100)
                         .font(.largeTitle)
                         .fontWeight(.heavy)
@@ -25,7 +25,7 @@ struct InitialView: View {
                         .shadow(color: .purple, radius: 1)
                         .position(x: geo.size.width / 2, y: animateGameTitle ? geo.size.height / 2 : -10 )
                 
-                Text("Hold the space ship to play")
+                Text(Const.initialMessage)
                     .foregroundStyle(.white)
                     .font(.headline)
                     .fontWeight(.bold)

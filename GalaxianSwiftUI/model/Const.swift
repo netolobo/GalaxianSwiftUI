@@ -8,15 +8,30 @@
 import Foundation
 
 struct Const {
+    //Asteroid
     static let asteroidImageName = "asteroid"
+    static let asteroidVelocity = 0.0007
+    static let asteroidPositionY = 100
+    static let asteroidQuantity = 12
+    static let asteroidHorizontalPadding = 30
+    static let asteroidInitialPositionX = 20
+    static let asteroidSize = CGSize(width: 25, height: 25)
     
-    //Asteroids velocity
-    static let backAsteroidsVelocity = 0.002
-    static let middleAsteroidsVelocity = 0.005
-    static let frontAsteroidsVelocity = 0.007
+    //Ship
+    static let shipImageName = "ship"
+    static let shipSize = CGSize(width: 50, height: 50)
+    static var shipPosition = CGPoint(x: 200, y: 500)
     
-    //Asteroids Y position
-    static let backAsteroidsPositionY = 100
-    static let middleAsteroidsPositionY = 130
-    static let frontAsteroidsPositionY = 160
+    //Space
+    static let spaceImageName = "space"
+    
+    static let gameTitle = "ASTEROIDS RAIN"
+    static let initialMessage = "Hold the space ship to play"
+    
+    static let gamePausedMessage = "Game paused, hold the space ship to resume"
+    
+    static let gameOverMessage = "GAME OVER"
+    static let playAgainLabel = "Play again!"
+    
+    static let scoreLabel = "SCORE"
 }

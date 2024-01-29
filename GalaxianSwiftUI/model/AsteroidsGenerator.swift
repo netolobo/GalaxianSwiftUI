@@ -8,9 +8,9 @@
 import Foundation
 
 struct AsteroidsGenerator {
-    static func generate(quantity: Int,horizontalPadding: Int, initialXPosition: Int, positionY: Int, velocity: Double) -> [Asteroid] {
+    static func generate(quantity: Int,horizontalPadding: Int, initialPositionX: Int, positionY: Int, velocity: Double) -> [Asteroid] {
         var asteroids = [Asteroid]()
-        var xPosition = initialXPosition
+        var xPosition = initialPositionX
         for _ in 0..<quantity {
             asteroids.append(
                 Asteroid(

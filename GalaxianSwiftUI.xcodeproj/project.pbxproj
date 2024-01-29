@@ -7,14 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A0410442B5F097000F8C330 /* BulletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0410432B5F097000F8C330 /* BulletView.swift */; };
 		5A0410462B5F5DA400F8C330 /* AsteroidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0410452B5F5DA400F8C330 /* AsteroidView.swift */; };
 		5A0410482B5F5DBD00F8C330 /* Asteroid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0410472B5F5DBD00F8C330 /* Asteroid.swift */; };
 		5A0410672B601F9500F8C330 /* AsteroidHorizontalMovement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0410662B601F9500F8C330 /* AsteroidHorizontalMovement.swift */; };
 		5A131B7F2B62D07B00BD530D /* ShipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A131B7E2B62D07B00BD530D /* ShipView.swift */; };
 		5A131B812B62E62200BD530D /* PauseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A131B802B62E62200BD530D /* PauseView.swift */; };
 		5A131B832B634FAD00BD530D /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A131B822B634FAD00BD530D /* GameState.swift */; };
-		5A137BAD2B63FC0A006605F4 /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A137BAC2B63FC0A006605F4 /* GameOverView.swift */; };
+		5A137BAD2B63FC0A006605F4 /* OverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A137BAC2B63FC0A006605F4 /* OverView.swift */; };
 		5A137BAF2B640285006605F4 /* InitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A137BAE2B640285006605F4 /* InitialView.swift */; };
 		5A137BB32B6435AB006605F4 /* SpaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A137BB22B6435AB006605F4 /* SpaceView.swift */; };
 		5A137BB52B646183006605F4 /* Ship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A137BB42B646183006605F4 /* Ship.swift */; };
@@ -25,19 +24,16 @@
 		5A2A9CE92B5C3AFD0067DC6A /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2A9CE82B5C3AFD0067DC6A /* GameView.swift */; };
 		5A2A9CEB2B5C3B000067DC6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A2A9CEA2B5C3B000067DC6A /* Assets.xcassets */; };
 		5A2A9CEE2B5C3B000067DC6A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A2A9CED2B5C3B000067DC6A /* Preview Assets.xcassets */; };
-		5A2A9CF52B5C3F7B0067DC6A /* JoystickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2A9CF42B5C3F7B0067DC6A /* JoystickView.swift */; };
-		5A2A9CF72B5C765F0067DC6A /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2A9CF62B5C765F0067DC6A /* TestView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5A0410432B5F097000F8C330 /* BulletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletView.swift; sourceTree = "<group>"; };
 		5A0410452B5F5DA400F8C330 /* AsteroidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsteroidView.swift; sourceTree = "<group>"; };
 		5A0410472B5F5DBD00F8C330 /* Asteroid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asteroid.swift; sourceTree = "<group>"; };
 		5A0410662B601F9500F8C330 /* AsteroidHorizontalMovement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsteroidHorizontalMovement.swift; sourceTree = "<group>"; };
 		5A131B7E2B62D07B00BD530D /* ShipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipView.swift; sourceTree = "<group>"; };
 		5A131B802B62E62200BD530D /* PauseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseView.swift; sourceTree = "<group>"; };
 		5A131B822B634FAD00BD530D /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
-		5A137BAC2B63FC0A006605F4 /* GameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
+		5A137BAC2B63FC0A006605F4 /* OverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverView.swift; sourceTree = "<group>"; };
 		5A137BAE2B640285006605F4 /* InitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialView.swift; sourceTree = "<group>"; };
 		5A137BB22B6435AB006605F4 /* SpaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceView.swift; sourceTree = "<group>"; };
 		5A137BB42B646183006605F4 /* Ship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship.swift; sourceTree = "<group>"; };
@@ -49,8 +45,6 @@
 		5A2A9CE82B5C3AFD0067DC6A /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		5A2A9CEA2B5C3B000067DC6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A2A9CED2B5C3B000067DC6A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		5A2A9CF42B5C3F7B0067DC6A /* JoystickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoystickView.swift; sourceTree = "<group>"; };
-		5A2A9CF62B5C765F0067DC6A /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,13 +83,10 @@
 			isa = PBXGroup;
 			children = (
 				5A2A9CE82B5C3AFD0067DC6A /* GameView.swift */,
-				5A0410432B5F097000F8C330 /* BulletView.swift */,
 				5A0410452B5F5DA400F8C330 /* AsteroidView.swift */,
-				5A2A9CF62B5C765F0067DC6A /* TestView.swift */,
-				5A2A9CF42B5C3F7B0067DC6A /* JoystickView.swift */,
 				5A131B7E2B62D07B00BD530D /* ShipView.swift */,
 				5A131B802B62E62200BD530D /* PauseView.swift */,
-				5A137BAC2B63FC0A006605F4 /* GameOverView.swift */,
+				5A137BAC2B63FC0A006605F4 /* OverView.swift */,
 				5A137BAE2B640285006605F4 /* InitialView.swift */,
 				5A137BB22B6435AB006605F4 /* SpaceView.swift */,
 			);
@@ -222,17 +213,14 @@
 				5A131B832B634FAD00BD530D /* GameState.swift in Sources */,
 				5A2A9CE92B5C3AFD0067DC6A /* GameView.swift in Sources */,
 				5A0410672B601F9500F8C330 /* AsteroidHorizontalMovement.swift in Sources */,
-				5A2A9CF72B5C765F0067DC6A /* TestView.swift in Sources */,
 				5A2A9CE72B5C3AFD0067DC6A /* GalaxianSwiftUIApp.swift in Sources */,
-				5A0410442B5F097000F8C330 /* BulletView.swift in Sources */,
 				5A137BAF2B640285006605F4 /* InitialView.swift in Sources */,
 				5A0410482B5F5DBD00F8C330 /* Asteroid.swift in Sources */,
 				5A131B812B62E62200BD530D /* PauseView.swift in Sources */,
-				5A137BAD2B63FC0A006605F4 /* GameOverView.swift in Sources */,
+				5A137BAD2B63FC0A006605F4 /* OverView.swift in Sources */,
 				5A137BBD2B66B938006605F4 /* AsteroidsGenerator.swift in Sources */,
 				5A137BB52B646183006605F4 /* Ship.swift in Sources */,
 				5A137BBF2B66F6A2006605F4 /* GameViewModel.swift in Sources */,
-				5A2A9CF52B5C3F7B0067DC6A /* JoystickView.swift in Sources */,
 				5A0410462B5F5DA400F8C330 /* AsteroidView.swift in Sources */,
 				5A137BB72B65F2F7006605F4 /* Const.swift in Sources */,
 			);

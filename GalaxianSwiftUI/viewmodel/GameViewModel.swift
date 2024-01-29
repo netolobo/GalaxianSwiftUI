@@ -13,12 +13,8 @@ class GameViewModel {
     var score = 0
     var ship = Ship()
     var asteroidMovementDirection = AsteroidHorizontalMovement.right
-    var backAsteroids = Asteroid.back
-    var backRandomAsteroid = Asteroid.back.randomElement()!
-    var middleAsteroids = Asteroid.middle
-    var middleRandomAsteroid = Asteroid.middle.randomElement()!
-    var frontAsteroids = Asteroid.front
-    var frontRandomAsteroid = Asteroid.front.randomElement()!
+    var backAsteroids = Asteroid.asteroids
+    var backRandomAsteroid = Asteroid.asteroids.randomElement()!
     var geo: GeometryProxy?
     var gameState = GameState.initial
     
@@ -26,12 +22,8 @@ class GameViewModel {
     func resetGame() {
         setShipInitialPosition()
         asteroidMovementDirection = AsteroidHorizontalMovement.right
-        backAsteroids = Asteroid.back
-        middleAsteroids = Asteroid.middle
-        frontAsteroids = Asteroid.front
+        backAsteroids = Asteroid.asteroids
         backRandomAsteroid = backAsteroids.randomElement()!
-        middleRandomAsteroid = middleAsteroids.randomElement()!
-        frontRandomAsteroid = frontAsteroids.randomElement()!
         score = 0
         gameState = .initial
     }
@@ -76,44 +68,7 @@ class GameViewModel {
             }
         }
     }
-    
-    private func middleAsteroidLeftRighMovement(geo: GeometryProxy) {
-        Timer.scheduledTimer(withTimeInterval: 0.02, repeats: true) { _ in
-            if self.gameState == .playing {
-                if self.asteroidMovementDirection == .right {
-                    for i in 0..<self.middleAsteroids.count {
-                        self.middleAsteroids[i].position.x += 1
-                    }
-                } else {
-                    for i in 0..<self.middleAsteroids.count {
-                        self.middleAsteroids[i].position.x -= 1
-                    }
-                }
-                
-            }
-        }
-    }
-    
-    
-    private func frontAsteroidLeftRighMovement(geo: GeometryProxy) {
-        Timer.scheduledTimer(withTimeInterval: 0.02, repeats: true) { _ in
-            if self.gameState == .playing {
-                if self.asteroidMovementDirection == .right {
-                    for i in 0..<self.frontAsteroids.count {
-                        self.frontAsteroids[i].position.x += 1
-                    }
-                } else {
-                    for i in 0..<self.frontAsteroids.count {
-                        self.frontAsteroids[i].position.x -= 1
-                    }
-                }
-            }
-        }
-    }
-    
-    
-
-    
+     
     private func backAsteroidsTopBottomMovement(geo: GeometryProxy) {
         guard let geo = self.geo else { return }
         Timer.scheduledTimer(withTimeInterval: backRandomAsteroid.velocity, repeats: true) { _ in
@@ -122,7 +77,10 @@ class GameViewModel {
                     if self.backAsteroids[index].position.y < geo.size.height {
                         self.backAsteroids[index].position.y += 1
                         if self.isCollision(asteroid: self.backAsteroids[index]) {
-                            self.gameState = .over
+                            withAnimation(.bouncy) {
+                                self.gameState = .over
+                            }
+                            
                         }
                     } else {
                         withAnimation(.bouncy) {
@@ -139,71 +97,11 @@ class GameViewModel {
                 }
             }
         }
-    }
-    
-    private func middleAsteroidsTopBottomMovement(geo: GeometryProxy) {
-        guard let geo = self.geo else { return }
-        Timer.scheduledTimer(withTimeInterval: middleRandomAsteroid.velocity, repeats: true) { _ in
-            if self.gameState == .playing {
-                if let index = self.middleAsteroids.firstIndex(where: { $0.id == self.middleRandomAsteroid.id }) {
-                    if self.middleAsteroids[index].position.y < geo.size.height {
-                        self.middleAsteroids[index].position.y += 1
-                        if self.isCollision(asteroid: self.middleAsteroids[index]) {
-                            self.gameState = .over
-                        }
-                    } else {
-                        withAnimation(.bouncy) {
-                            self.score += 1
-                        }
-                        self.middleAsteroids[index].position.y = 0 //reset enemy position
-                        
-                        withAnimation(.bouncy(duration: 1.3)) {
-                            self.middleAsteroids[index].position.y = self.middleRandomAsteroid.position.y
-                        }
-                        
-                        self.middleRandomAsteroid = self.middleAsteroids.randomElement()! //update the random enemy
-                    }
-                }
-            }
-        }
-    }
-    
-    private func frontAsteroidsTopBottomMovement(geo: GeometryProxy) {
-        guard let geo = self.geo else { return }
-        Timer.scheduledTimer(withTimeInterval: frontRandomAsteroid.velocity, repeats: true) { _ in
-            if self.gameState == .playing {
-                if let index = self.frontAsteroids.firstIndex(where: { $0.id == self.frontRandomAsteroid.id }) {
-                    if self.frontAsteroids[index].position.y < geo.size.height {
-                        self.frontAsteroids[index].position.y += 1
-                        if self.isCollision(asteroid: self.frontAsteroids[index]) {
-                            self.gameState = .over
-                        }
-                    } else {
-                        withAnimation(.bouncy) {
-                            self.score += 1
-                        }
-                        self.frontAsteroids[index].position.y = 0 //reset enemy position
-                        
-                        withAnimation(.bouncy(duration: 1.3)) {
-                            self.frontAsteroids[index].position.y = self.frontRandomAsteroid.position.y
-                        }
-                        
-                        self.frontRandomAsteroid = self.frontAsteroids.randomElement()! //update the random enemy
-                    }
-                }
-            }
-        }
-    }
+    }    
     
     private func asteroidsMovement(geo: GeometryProxy) {
         self.backAsteroidsLeftRighMovement(geo: geo)
         self.backAsteroidsTopBottomMovement(geo: geo)
-        
-        self.middleAsteroidLeftRighMovement(geo: geo)
-        self.middleAsteroidsTopBottomMovement(geo: geo)
-        
-        self.frontAsteroidLeftRighMovement(geo: geo)
-        self.frontAsteroidsTopBottomMovement(geo: geo)
     }
     
     

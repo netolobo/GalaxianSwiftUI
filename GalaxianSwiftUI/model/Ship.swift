@@ -8,9 +8,9 @@
 import Foundation
 
 struct Ship {
-    let imageName : String = "ship"
-    let size = CGSize(width: 50, height: 50)
-    var position = CGPoint(x: 200, y: 500)
+    let imageName : String = Const.shipImageName
+    let size : CGSize = Const.shipSize
+    var position : CGPoint = Const.shipPosition
 }
 
 

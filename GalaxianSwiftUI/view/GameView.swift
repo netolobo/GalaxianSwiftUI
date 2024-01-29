@@ -9,28 +9,26 @@ import SwiftUI
 
 struct GameView: View {
     @State private var viewModel = GameViewModel()
-    
     var body: some View {
         GeometryReader() { geo in
             ZStack {
                 
                 if viewModel.gameState != .initial {
-                    Text("Score \(viewModel.score)")
-                        .position(x: geo.size.width / 2, y: 10)
-                        .font(.title2)
+                    Text(Const.scoreLabel)
+                        .position(x: geo.size.width / 2, y: viewModel.gameState == .over ? geo.size.height / 2 - 120 : 0)
+                        .font(.title3)
+                        .fontWeight(.regular)
+                        .fontDesign(.serif)
+                        .foregroundStyle(.white)
+                    
+                    Text("\(viewModel.score)")
+                        .position(x: geo.size.width / 2, y: viewModel.gameState == .over ? geo.size.height / 2 - 90 : 30)
+                        .font(.title)
                         .fontWeight(.heavy)
-                        .fontDesign(.rounded)
+                        .fontDesign(.serif)
                         .foregroundStyle(.white)
                     
                     ForEach(viewModel.backAsteroids) { enemy in
-                        AsteroidView(asteroid: enemy)
-                    }
-                    
-                    ForEach(viewModel.middleAsteroids) { enemy in
-                        AsteroidView(asteroid: enemy)
-                    }
-                    
-                    ForEach(viewModel.frontAsteroids) { enemy in
                         AsteroidView(asteroid: enemy)
                     }
                     
@@ -44,7 +42,7 @@ struct GameView: View {
                 case .paused:
                     PauseView()
                 case .over:
-                    GameOverView(viewModel: $viewModel)
+                    OverView(viewModel: $viewModel)
                 case .playing:
                     EmptyView()
                 }
