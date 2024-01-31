@@ -10,7 +10,7 @@ import SwiftUI
 
 @Observable
 class GameViewModel {
-    var score = 0
+    var scoreCounter = 0
     var ship = Ship()
     var asteroidMovementDirection = AsteroidHorizontalMovement.right
     var backAsteroids = Asteroid.asteroids
@@ -24,7 +24,7 @@ class GameViewModel {
         asteroidMovementDirection = AsteroidHorizontalMovement.right
         backAsteroids = Asteroid.asteroids
         backRandomAsteroid = backAsteroids.randomElement()!
-        score = 0
+        scoreCounter = 0
         gameState = .initial
     }
     
@@ -83,9 +83,9 @@ class GameViewModel {
                         }
                     } else {
                         withAnimation(.bouncy) {
-                            self.score += 1
+                            self.scoreCounter += 1
                         }
-                        self.backAsteroids[index].position.y = 0 //reset enemy position
+                        self.backAsteroids[index].position.y = 0 //reset asteroid position
                         
                         withAnimation(.bouncy(duration: 1.3)) {
                             self.backAsteroids[index].position.y = self.backRandomAsteroid.position.y
